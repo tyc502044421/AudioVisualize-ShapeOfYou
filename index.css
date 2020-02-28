@@ -1,0 +1,169 @@
+*
+{
+    padding:0;
+    margin:0;
+}
+html,body
+{
+    overflow: hidden;
+    position: relative;
+
+    height: 100%;
+
+    background-color:black;
+    background-image:url('./image/Background.jpg');
+    background-size:contain;
+    background-repeat:no-repeat;
+
+    font-size:16px;
+    font-family: 'Microsoft JhengHei',sans-serif;
+}
+
+/*cover*/
+#cover
+{
+    position: relative;
+    z-index:1;
+    width:100%;
+    height:100%;
+    color:white;
+}
+
+#cover_background
+{
+    position: absolute;
+    left:0;
+    top:0;
+
+    width:100%;
+    height:100%;
+
+    background:black;
+}
+#cover_background.animate
+{
+    animation-name:cover_background_hide;
+    animation-duration: 4s;
+    animation-fill-mode: forwards;
+}
+@keyframes cover_background_hide
+{
+    0%{opacity: 1;}
+    100%{opacity: 0;}
+}
+
+#cover_title
+{
+    z-index:2;
+    position: absolute;
+    left:50%;
+    top:50%;
+
+    width:20rem;
+    margin-left:1rem;
+
+    transform: translate(-50%,-50%) scale(1);
+    transform-origin: 0 0;
+
+    font-size:2rem;
+    line-height: 2;
+}
+#cover_title.animate
+{
+    animation-name:cover_title_move;
+    animation-duration: 0.8s;
+    animation-fill-mode: forwards;
+}
+#cover_title > div:nth-child(1)
+{
+    float:left;
+}
+#cover_title > div:nth-child(2)
+{
+    float:right;
+}
+@keyframes cover_title_move
+{
+    0%{left:50%;top:50%;transform: translate(-50%,-50%) scale(1);width:24rem;color:white;}
+    100%{left:0;top:0;transform: translate(0,0) scale(0.5);width:27rem;color:grey;}
+}
+
+#cover_play
+{
+    z-index:2;
+    position:absolute;
+    left:50%;
+    top:70%;
+    transform:translate(-50%);
+    text-decoration:underline;
+    font-size:2rem;
+    cursor:pointer;
+}
+#cover_play.hide
+{   
+    display:none;
+}
+
+/*vision*/
+#vision
+{
+    position: absolute;
+    left:0;
+    top:0;
+
+    width:100%;
+    height:100%;
+
+    filter:blur(4px);
+}
+
+/*lyrics*/
+#lyrics
+{
+    position: absolute;
+    top:0;
+    left:50%;
+
+    width:30%;
+    height:100%;
+    padding:0 1rem 1rem 1rem;
+    box-sizing:border-box;
+
+    transform: translateX(-50%);
+}
+
+#lyrics_content
+{
+    position: relative;
+    top:50%;
+ 
+    transition: top 0.5s;
+}
+
+#lyrics_mask
+{
+    position: absolute;
+    left:-50vw;
+    top:0;
+    
+    width:150vw;
+    height:100%;
+
+    background:linear-gradient(to bottom,black 0,transparent 40%,transparent 60%,black 100%);
+}
+
+.lyrics_line
+{
+    margin:0 0 1.5rem 0;
+
+    text-align: center;
+    color:#aaaaaa;
+
+    transition:transform 0.5s,color 0.5s;
+}
+.lyrics_line.current
+{
+    transform:scale(2);
+    color:white;
+}
+
